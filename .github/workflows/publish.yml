@@ -34,29 +34,29 @@ jobs:
       - name: Dry-run packages
         run: npm run pack:dry-run
 
-      - name: Publish @blcklab/porma
-        working-directory: packages/porma
-        run: npm publish --access public --tag rc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish @blcklab/porma
+      #   working-directory: packages/porma
+      #   run: npm publish --access public --tag rc
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish @blcklab/porma-compiler
-        working-directory: packages/porma-compiler
-        run: npm publish --access public --tag rc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish @blcklab/porma-compiler
+      #   working-directory: packages/porma-compiler
+      #   run: npm publish --access public --tag rc
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish @blcklab/porma-vite
-        working-directory: packages/porma-vite
-        run: npm publish --access public --tag rc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish @blcklab/porma-vite
+      #   working-directory: packages/porma-vite
+      #   run: npm publish --access public --tag rc
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish @blcklab/porma-router
-        working-directory: packages/porma-router
-        run: npm publish --access public --tag rc
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish @blcklab/porma-router
+      #   working-directory: packages/porma-router
+      #   run: npm publish --access public --tag rc
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish create-porma
         working-directory: packages/create-porma
