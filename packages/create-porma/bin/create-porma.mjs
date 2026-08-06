@@ -16,6 +16,7 @@ function parseArgs(argv) {
     force: false,
     help: false
   }
+  
 
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i]
