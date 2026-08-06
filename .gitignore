@@ -9,3 +9,6 @@ dist/
 .DS_Store
 bench/out.js
 .vscode-test/
+# Keep the create-porma CLI tracked even when a global Git ignore excludes bin/.
+!packages/create-porma/bin/
+!packages/create-porma/bin/create-porma.mjs
