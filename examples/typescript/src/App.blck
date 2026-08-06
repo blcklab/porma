@@ -1,0 +1,41 @@
+<logic lang="ts">
+import { signal, computed, shared, type Signal } from '@blcklab/porma'
+import TypedChild from './TypedChild.blck'
+
+type Todo = {
+  id: number
+  text: string
+  done?: boolean
+}
+
+const count = shared(signal<number>(0))
+const todos = signal<Todo[]>([
+  { id: 1, text: 'Harden TypeScript' },
+  { id: 2, text: 'Keep Porma dependency-free' }
+])
+
+const total = computed<number>(() => todos.value.length)
+
+function increment(): void {
+  count.value++
+}
+
+function addTodo(text: string): void {
+  todos.value = [...todos.value, { id: Date.now(), text }]
+}
+</logic>
+
+<view>
+  <main class="app">
+    <h1>Porma TypeScript</h1>
+    <p>Total: {total}</p>
+    <button on.click={increment}>Count: {count}</button>
+    <button on.click={() => addTodo('Typed todo')}>Add Todo</button>
+
+    <ul>
+      <li loop="todo in todos" key={todo.id}>{todo.text}</li>
+    </ul>
+
+    <TypedChild />
+  </main>
+</view>

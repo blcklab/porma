@@ -1,0 +1,29 @@
+<logic>
+import { signal, shared } from '@blcklab/porma'
+
+const count = shared(signal(0))
+const label = signal('Add')
+const todos = signal([
+  { id: 1, text: 'Build Porma' },
+  { id: 2, text: 'Measure compiled bundle' }
+])
+
+function increment() {
+  count.value++
+}
+</logic>
+
+<view>
+  <main class="bench-app">
+    <button on.click={increment}>{label}: {count}</button>
+
+    <ul>
+      <li loop="todo in todos" key={todo.id}>{todo.text}</li>
+    </ul>
+  </main>
+</view>
+
+<style scoped>
+.bench-app { font-family: system-ui; }
+button { border-radius: 8px; }
+</style>

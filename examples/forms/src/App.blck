@@ -1,0 +1,24 @@
+<logic>
+import { signal, computed } from '@blcklab/porma'
+
+const name = signal('Avelino')
+const enabled = signal(true)
+const selected = signal('basic')
+const summary = computed(() => `${name.value} / ${enabled.value ? 'enabled' : 'disabled'} / ${selected.value}`)
+</logic>
+
+<view>
+  <main>
+    <h1>Form bindings</h1>
+    <input value={name} />
+    <label>
+      <input checked={enabled} /> Enabled
+    </label>
+    <select value={selected}>
+      <option value="basic">Basic</option>
+      <option value="advanced">Advanced</option>
+    </select>
+    <button disabled={!enabled.value}>Save</button>
+    <p>{summary}</p>
+  </main>
+</view>

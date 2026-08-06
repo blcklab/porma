@@ -1,0 +1,32 @@
+<view>
+  <section class="page-card">
+    <p class="eyebrow">About</p>
+    <h2>Clean starter structure</h2>
+    <p>This project separates app config, layout, navigation, pages, reusable components, styles, and plain helpers.</p>
+  </section>
+</view>
+
+<style scoped>
+.page-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+
+.eyebrow {
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+}
+
+p {
+  color: #475569;
+}
+</style>

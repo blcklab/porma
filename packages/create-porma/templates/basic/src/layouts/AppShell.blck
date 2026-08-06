@@ -1,0 +1,33 @@
+<view>
+  <header class="app-shell">
+    <div>
+      <p class="eyebrow">Porma .blck app</p>
+      <h1>{appTitle}</h1>
+    </div>
+  </header>
+</view>
+
+<style scoped>
+.app-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0 1rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  letter-spacing: -0.06em;
+}
+</style>

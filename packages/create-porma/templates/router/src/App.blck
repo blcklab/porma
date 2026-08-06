@@ -1,0 +1,26 @@
+<logic>
+import { signal, shared } from '@blcklab/porma'
+import { RouterView } from '@blcklab/porma-router'
+import { appConfig } from './app/config.js'
+import { initialTodos } from './lib/todos.js'
+import AppShell from './layouts/AppShell.blck'
+
+const appTitle = signal(appConfig.name)
+const count = shared(signal(0))
+const todos = shared(signal(initialTodos))
+</logic>
+
+<view>
+  <AppShell />
+
+  <main class="route-outlet">
+    <RouterView />
+  </main>
+</view>
+
+<style scoped>
+.route-outlet {
+  display: grid;
+  gap: 1rem;
+}
+</style>

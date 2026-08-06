@@ -1,0 +1,33 @@
+{
+  "name": "porma",
+  "private": true,
+  "version": "0.1.0-rc.3",
+  "type": "module",
+  "description": "Porma is a lightweight dependency-free .blck frontend framework.",
+  "scripts": {
+    "test": "node scripts/run-tests.mjs",
+    "test:core": "node --test packages/porma/test",
+    "test:compiler": "node --test packages/porma-compiler/test",
+    "test:router": "node --test packages/porma-router/test",
+    "bench:compiled": "node bench/compiled-size.mjs",
+    "pack:dry-run": "npm pack --dry-run --workspace @blcklab/porma && npm pack --dry-run --workspace @blcklab/porma-compiler && npm pack --dry-run --workspace @blcklab/porma-vite && npm pack --dry-run --workspace @blcklab/porma-router && npm pack --dry-run --workspace create-porma",
+    "verify": "npm test && npm run check:boundaries && npm run check:examples && npm run check:vscode && npm run bench:compiled && npm run bench:matrix && npm run pack:dry-run && npm run package:vscode",
+    "check:vscode": "node scripts/check-vscode-extension.mjs",
+    "package:vscode": "cd tools/porma-blck-vscode && npm pack --dry-run --workspaces=false",
+    "test:vite": "node --test packages/porma-vite/test/*.test.js",
+    "check:boundaries": "node scripts/check-package-boundaries.mjs",
+    "check:examples": "node scripts/check-examples.mjs",
+    "bench:matrix": "node bench/matrix.mjs",
+    "release:summary": "node scripts/release-summary.mjs",
+    "test:create": "node --test packages/create-porma/test/*.test.js",
+    "verify:publish": "npm run verify && npm run release:summary",
+    "release:dry-run": "npm run verify && npm run pack:dry-run"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "happy-dom": "^20.10.6",
+    "esbuild": "^0.28.1"
+  }
+}

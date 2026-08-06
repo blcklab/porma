@@ -1,0 +1,80 @@
+name: Publish npm packages
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dist-tag:
+        description: npm dist-tag to publish with
+        required: true
+        default: rc
+        type: choice
+        options:
+          - alpha
+          - beta
+          - rc
+          - latest
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Verify and publish
+    runs-on: ubuntu-latest
+    env:
+      NPM_CONFIG_PROVENANCE: true
+      DIST_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.dist-tag || 'rc' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Verify release candidate
+        run: npm run verify:publish
+
+      - name: Publish @blcklab/porma
+        working-directory: packages/porma
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --tag "$DIST_TAG"
+
+      - name: Publish @blcklab/porma-compiler
+        working-directory: packages/porma-compiler
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --tag "$DIST_TAG"
+
+      - name: Publish @blcklab/porma-vite
+        working-directory: packages/porma-vite
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --tag "$DIST_TAG"
+
+      - name: Publish @blcklab/porma-router
+        working-directory: packages/porma-router
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --tag "$DIST_TAG"
+
+      - name: Publish create-porma
+        working-directory: packages/create-porma
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --tag "$DIST_TAG"

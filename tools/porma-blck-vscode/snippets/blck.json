@@ -1,0 +1,134 @@
+{
+  "Porma Component": {
+    "prefix": "porma",
+    "body": [
+      "<logic>",
+      "import { signal } from '@blcklab/porma'",
+      "",
+      "const count = signal(0)",
+      "",
+      "function increment() {",
+      "  count.value++",
+      "}",
+      "</logic>",
+      "",
+      "<view>",
+      "  <button on.click={increment}>",
+      "    Count: {count}",
+      "  </button>",
+      "</view>",
+      "",
+      "<style scoped>",
+      "button {",
+      "  padding: 0.75rem 1rem;",
+      "  border-radius: 10px;",
+      "}",
+      "</style>"
+    ],
+    "description": "Create a Porma .blck component"
+  },
+  "Porma TypeScript Component": {
+    "prefix": "porma-ts",
+    "body": [
+      "<logic lang=\"ts\">",
+      "import { signal, type Signal } from '@blcklab/porma'",
+      "",
+      "const count = signal<number>(0)",
+      "const inherited = defineInherits<{ theme: Signal<string> }>()",
+      "",
+      "function increment(): void {",
+      "  count.value++",
+      "}",
+      "</logic>",
+      "",
+      "<view>",
+      "  <button on.click={increment}>",
+      "    Count: {count}",
+      "  </button>",
+      "  <p>{inherited.theme}</p>",
+      "</view>"
+    ],
+    "description": "Create a typed Porma .blck component"
+  },
+  "Porma Props": {
+    "prefix": "props",
+    "body": [
+      "const props = defineProps({",
+      "  ${1:label}: {",
+      "    default: ${2:'Submit'}",
+      "  }",
+      "})"
+    ],
+    "description": "Define Porma props"
+  },
+  "Porma Typed Props": {
+    "prefix": "props-ts",
+    "body": [
+      "const props = defineProps<{",
+      "  ${1:label}?: ${2:string}",
+      "  ${3:onClick}?: () => void",
+      "}>({",
+      "  ${1:label}: {",
+      "    default: ${4:'Submit'}",
+      "  }",
+      "})"
+    ],
+    "description": "Define typed Porma props"
+  },
+  "Porma Inherits": {
+    "prefix": "inherits",
+    "body": [
+      "const inherited = defineInherits<{",
+      "  ${1:count}: ${2:Signal<number>}",
+      "}>()"
+    ],
+    "description": "Declare inherited scope typing helper"
+  },
+  "Porma Loop": {
+    "prefix": "loop",
+    "body": [
+      "<${1:li} loop=\"${2:item} in ${3:items}\" key={${2:item}.id}>",
+      "  {${2:item}.${4:name}}",
+      "</${1:li}>"
+    ],
+    "description": "Porma loop directive"
+  },
+  "Porma Indexed Loop": {
+    "prefix": "loop-index",
+    "body": [
+      "<${1:li} loop=\"(${2:item}, ${3:index}) in ${4:items}\" key={${2:item}.id}>",
+      "  {${3:index} + 1}. {${2:item}.${5:name}}",
+      "</${1:li}>"
+    ],
+    "description": "Porma loop directive with index"
+  },
+  "Porma If": {
+    "prefix": "if",
+    "body": [
+      "<${1:section} if={${2:condition}}>",
+      "  $0",
+      "</${1:section}>"
+    ],
+    "description": "Porma if directive"
+  },
+  "Porma Show": {
+    "prefix": "show",
+    "body": [
+      "<${1:section} show={${2:visible}}>",
+      "  $0",
+      "</${1:section}>"
+    ],
+    "description": "Porma show directive"
+  },
+  "Porma Scoped Style": {
+    "prefix": "style-scoped",
+    "body": [
+      "<style scoped>",
+      "${1:.card} {",
+      "  ${2:display}: ${3:block};",
+      "}",
+      "</style>"
+    ],
+    "description": "Porma scoped style block"
+  }
+}

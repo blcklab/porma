@@ -1,0 +1,78 @@
+{
+  "name": "porma-blck",
+  "displayName": "Porma BLCK",
+  "description": "Syntax highlighting, snippets, and editing basics for Porma .blck components.",
+  "version": "0.0.4",
+  "publisher": "blcklab",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "porma",
+    "blck",
+    "frontend",
+    "components",
+    "syntax"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blcklab/porma.git",
+    "directory": "tools/porma-blck-vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/blcklab/porma/issues"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "porma-blck",
+        "aliases": [
+          "Porma BLCK",
+          "Porma",
+          "blck"
+        ],
+        "extensions": [
+          ".blck"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "porma-blck",
+        "scopeName": "source.blck",
+        "path": "./syntaxes/blck.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.logic.blck": "typescript",
+          "meta.embedded.block.view.blck": "html",
+          "meta.embedded.block.style.blck": "css"
+        }
+      }
+    ],
+    "snippets": [
+      {
+        "language": "porma-blck",
+        "path": "./snippets/blck.json"
+      }
+    ]
+  },
+  "files": [
+    "language-configuration.json",
+    "syntaxes",
+    "snippets",
+    "fixtures",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "homepage": "https://github.com/blcklab/porma/tree/main/tools/porma-blck-vscode#readme"
+}

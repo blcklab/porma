@@ -1,0 +1,14 @@
+<logic>
+const props = defineProps({
+  label: { default: 'Button' },
+  onClick: { default: null }
+})
+</logic>
+
+<view>
+  <button class="ui-button" on.click={props.onClick}>{props.label}</button>
+</view>
+
+<style scoped>
+.ui-button { border: 0; border-radius: 999px; padding: .65rem 1rem; }
+</style>

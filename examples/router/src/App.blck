@@ -1,0 +1,7 @@
+<view>
+  <main>
+    <h1>Porma Router</h1>
+    <p>Current path: {route.value.path}</p>
+    <p>User id: {route.value.params.id}</p>
+  </main>
+</view>

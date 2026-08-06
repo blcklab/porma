@@ -1,0 +1,22 @@
+<logic lang="ts">
+import CounterPanel from '../components/counter/CounterPanel.blck'
+import TodoList from '../components/todo/TodoList.blck'
+import Card from '../components/ui/Card.blck'
+
+const intro: string = 'This starter keeps shared state in App.blck. Typed children can declare inherited scope with defineInherits<T>().'
+</logic>
+
+<view>
+  <main class="home-page">
+    <Card title="Typed inherited scope" body={intro} />
+    <CounterPanel />
+    <TodoList />
+  </main>
+</view>
+
+<style scoped>
+.home-page {
+  display: grid;
+  gap: 1rem;
+}
+</style>

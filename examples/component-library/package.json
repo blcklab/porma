@@ -1,0 +1,17 @@
+{
+  "name": "porma-example-component-library",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@blcklab/porma": "0.1.0-rc.3"
+  },
+  "devDependencies": {
+    "@blcklab/porma-vite": "0.1.0-rc.3",
+    "vite": "^8.0.12"
+  }
+}

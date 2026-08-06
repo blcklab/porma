@@ -1,0 +1,36 @@
+name: VS Code extension
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'tools/porma-blck-vscode/**'
+      - '.github/workflows/vscode-extension.yml'
+  pull_request:
+    paths:
+      - 'tools/porma-blck-vscode/**'
+      - '.github/workflows/vscode-extension.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Check extension metadata
+        run: npm run check:vscode
+
+      - name: Package extension dry run
+        run: npm run package:vscode

@@ -1,0 +1,22 @@
+<logic>
+import CounterPanel from '../components/counter/CounterPanel.blck'
+import TodoList from '../components/todo/TodoList.blck'
+import Card from '../components/ui/Card.blck'
+
+const intro = 'Shared state lives in App.blck. Child components read it automatically through Porma inherited scope.'
+</logic>
+
+<view>
+  <main class="home-page">
+    <Card title="Automatic inherited scope" body={intro} />
+    <CounterPanel />
+    <TodoList />
+  </main>
+</view>
+
+<style scoped>
+.home-page {
+  display: grid;
+  gap: 1rem;
+}
+</style>

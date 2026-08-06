@@ -1,0 +1,25 @@
+<logic>
+const props = defineProps({
+  label: { default: 'Button' },
+  onClick: { default: null }
+})
+</logic>
+
+<view>
+  <button class="button" on.click={props.onClick}>
+    {props.label}
+  </button>
+</view>
+
+<style scoped>
+.button {
+  background: #111827;
+  border: 0;
+  border-radius: 0.9rem;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+}
+</style>

@@ -1,0 +1,14 @@
+<logic>
+const props = defineProps({ title: { default: 'Panel' } })
+</logic>
+
+<view>
+  <section class="panel">
+    <h2>{props.title}</h2>
+    <p>Porma components stay small and dependency-free.</p>
+  </section>
+</view>
+
+<style scoped>
+.panel { border: 1px solid #ddd; border-radius: 12px; padding: 1rem; }
+</style>

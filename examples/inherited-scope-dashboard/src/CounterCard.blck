@@ -1,0 +1,10 @@
+<logic>
+const props = defineProps({ label: { default: 'Counter' } })
+</logic>
+
+<view>
+  <section>
+    <h2>{props.label}</h2>
+    <button on.click={() => count.value++}>Count: {count}</button>
+  </section>
+</view>

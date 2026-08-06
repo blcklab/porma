@@ -1,0 +1,201 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Porma BLCK",
+  "scopeName": "source.blck",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#logic"
+    },
+    {
+      "include": "#view"
+    },
+    {
+      "include": "#style"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.html.blck",
+          "begin": "<!--",
+          "end": "-->"
+        }
+      ]
+    },
+    "logic": {
+      "name": "meta.embedded.block.logic.blck",
+      "begin": "(<logic)(\\s+[^>]*)?(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.logic.blck"
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#blockAttrs"
+            }
+          ]
+        },
+        "3": {
+          "name": "entity.name.tag.logic.blck"
+        }
+      },
+      "end": "(</logic>)",
+      "endCaptures": {
+        "1": {
+          "name": "entity.name.tag.logic.blck"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.ts"
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    "view": {
+      "name": "meta.embedded.block.view.blck",
+      "begin": "(<view)(\\s+[^>]*)?(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.view.blck"
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#blockAttrs"
+            }
+          ]
+        },
+        "3": {
+          "name": "entity.name.tag.view.blck"
+        }
+      },
+      "end": "(</view>)",
+      "endCaptures": {
+        "1": {
+          "name": "entity.name.tag.view.blck"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#pormaDirectives"
+        },
+        {
+          "include": "#pormaEvents"
+        },
+        {
+          "include": "#interpolation"
+        },
+        {
+          "include": "text.html.basic"
+        }
+      ]
+    },
+    "style": {
+      "name": "meta.embedded.block.style.blck",
+      "begin": "(<style)(\\s+[^>]*)?(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.tag.style.blck"
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "#blockAttrs"
+            }
+          ]
+        },
+        "3": {
+          "name": "entity.name.tag.style.blck"
+        }
+      },
+      "end": "(</style>)",
+      "endCaptures": {
+        "1": {
+          "name": "entity.name.tag.style.blck"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.css"
+        }
+      ]
+    },
+    "blockAttrs": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.blck",
+          "match": "\\b(lang|scoped)\\b"
+        },
+        {
+          "name": "string.quoted.double.blck",
+          "begin": "\"",
+          "end": "\""
+        },
+        {
+          "name": "string.quoted.single.blck",
+          "begin": "'",
+          "end": "'"
+        }
+      ]
+    },
+    "pormaDirectives": {
+      "patterns": [
+        {
+          "name": "keyword.control.directive.loop.blck",
+          "match": "\\bloop(?=\\s*=)"
+        },
+        {
+          "name": "keyword.control.directive.conditional.blck",
+          "match": "\\b(if|show)(?=\\s*=)"
+        },
+        {
+          "name": "keyword.control.directive.key.blck",
+          "match": "\\bkey(?=\\s*=)"
+        },
+        {
+          "name": "keyword.control.directive.isolate.blck",
+          "match": "\\bisolate\\b"
+        }
+      ]
+    },
+    "pormaEvents": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.event.blck",
+          "match": "\\bon\\.[A-Za-z_$][\\w$-]*(?:\\.[A-Za-z_$][\\w$-]*)*"
+        }
+      ]
+    },
+    "interpolation": {
+      "name": "meta.embedded.expression.blck",
+      "begin": "\\{",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.begin.blck"
+        }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.embedded.end.blck"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.ts"
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    }
+  }
+}

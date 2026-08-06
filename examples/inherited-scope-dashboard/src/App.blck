@@ -1,0 +1,20 @@
+<logic>
+import { signal, shared } from '@blcklab/porma'
+import CounterCard from './CounterCard.blck'
+import ThemeBadge from './ThemeBadge.blck'
+
+const count = shared(signal(0))
+const theme = signal('midnight')
+</logic>
+
+<view>
+  <main class={theme}>
+    <h1>Inherited Scope Dashboard</h1>
+    <CounterCard label="Shared counter" />
+    <ThemeBadge />
+  </main>
+</view>
+
+<style scoped>
+.midnight { background: #111; color: white; padding: 1rem; }
+</style>

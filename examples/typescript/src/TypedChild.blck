@@ -1,0 +1,11 @@
+<logic lang="ts">
+import { type Signal } from '@blcklab/porma'
+
+const inherited = defineInherits<{
+  count: Signal<number>
+}>()
+</logic>
+
+<view>
+  <p>Inherited typed count: {inherited.count}</p>
+</view>

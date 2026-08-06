@@ -1,0 +1,54 @@
+{
+  "name": "@blcklab/porma-vite",
+  "version": "0.1.0-rc.3",
+  "description": "Vite plugin for Porma .blck files.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "keywords": [
+    "porma",
+    "vite",
+    "plugin",
+    "blck"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "types": "./src/index.d.ts",
+  "dependencies": {
+    "@blcklab/porma-compiler": "0.1.0-rc.3"
+  },
+  "peerDependencies": {
+    "vite": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blcklab/porma.git",
+    "directory": "packages/porma-vite"
+  },
+  "bugs": {
+    "url": "https://github.com/blcklab/porma/issues"
+  },
+  "homepage": "https://github.com/blcklab/porma#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

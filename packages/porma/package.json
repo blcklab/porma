@@ -1,0 +1,71 @@
+{
+  "name": "@blcklab/porma",
+  "version": "0.1.0-rc.3",
+  "description": "Runtime package for Porma, an independent dependency-free .blck frontend framework.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "keywords": [
+    "porma",
+    "frontend",
+    "framework",
+    "signals",
+    "components",
+    "blck"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    },
+    "./reactivity": {
+      "types": "./src/reactivity/index.d.ts",
+      "import": "./src/reactivity/index.js",
+      "default": "./src/reactivity/index.js"
+    },
+    "./scope": {
+      "types": "./src/scope/index.d.ts",
+      "import": "./src/scope/index.js",
+      "default": "./src/scope/index.js"
+    },
+    "./runtime": {
+      "types": "./src/runtime/index.d.ts",
+      "import": "./src/runtime/index.js",
+      "default": "./src/runtime/index.js"
+    },
+    "./dom": {
+      "types": "./src/dom/index.d.ts",
+      "import": "./src/dom/index.js",
+      "default": "./src/dom/index.js"
+    },
+    "./devtools": {
+      "types": "./src/devtools/index.d.ts",
+      "import": "./src/devtools/index.js",
+      "default": "./src/devtools/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "types": "./src/index.d.ts",
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blcklab/porma.git",
+    "directory": "packages/porma"
+  },
+  "bugs": {
+    "url": "https://github.com/blcklab/porma/issues"
+  },
+  "homepage": "https://github.com/blcklab/porma#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

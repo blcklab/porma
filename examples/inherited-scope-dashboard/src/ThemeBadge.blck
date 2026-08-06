@@ -1,0 +1,3 @@
+<view>
+  <p>Inherited theme: {theme}</p>
+</view>

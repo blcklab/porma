@@ -1,0 +1,37 @@
+<logic lang="ts">
+import { type Signal } from '@blcklab/porma'
+
+const inherited = defineInherits<{
+  appTitle: Signal<string>
+}>()
+</logic>
+
+<view>
+  <header class="app-shell">
+    <div>
+      <p class="eyebrow">Typed Porma .blck app</p>
+      <h1>{inherited.appTitle}</h1>
+    </div>
+  </header>
+</view>
+
+<style scoped>
+.app-shell {
+  padding: 2rem 0 1rem;
+}
+
+.eyebrow {
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  letter-spacing: -0.06em;
+  margin: 0;
+}
+</style>

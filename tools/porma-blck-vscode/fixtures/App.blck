@@ -1,0 +1,30 @@
+<logic lang="ts">
+import { signal, type Signal } from '@blcklab/porma'
+
+type Todo = { id: number; text: string }
+
+const inherited = defineInherits<{ theme: Signal<string> }>()
+const todos = signal<Todo[]>([{ id: 1, text: 'Polish VS Code extension' }])
+
+function addTodo(): void {
+  todos.update((items) => [...items, { id: Date.now(), text: 'New todo' }])
+}
+</logic>
+
+<view>
+  <main class={inherited.theme}>
+    <button on.click.prevent={addTodo}>Add todo</button>
+
+    <ul show={todos}>
+      <li loop="(todo, index) in todos" key={todo.id}>
+        {index + 1}. {todo.text}
+      </li>
+    </ul>
+  </main>
+</view>
+
+<style scoped>
+main {
+  padding: 1rem;
+}
+</style>

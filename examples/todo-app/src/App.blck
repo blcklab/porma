@@ -1,0 +1,44 @@
+<logic>
+import { signal, computed } from '@blcklab/porma'
+
+const nextId = signal(3)
+const draft = signal('')
+const todos = signal([
+  { id: 1, text: 'Harden compiler', done: true },
+  { id: 2, text: 'Ship public alpha', done: false }
+])
+
+const remaining = computed(() => todos.value.filter(todo => !todo.done).length)
+
+function addTodo() {
+  const text = draft.value.trim()
+  if (!text) return
+  todos.value = [...todos.value, { id: nextId.value, text, done: false }]
+  nextId.value++
+  draft.value = ''
+}
+
+function toggle(todo) {
+  todos.value = todos.value.map(item => item.id === todo.id ? { ...item, done: !item.done } : item)
+}
+</logic>
+
+<view>
+  <main class="todo-app">
+    <h1>Porma Todo</h1>
+    <p>{remaining} remaining</p>
+    <input value={draft} />
+    <button on.click={addTodo}>Add</button>
+    <ul>
+      <li loop="todo in todos" key={todo.id} class={{ done: todo.done }}>
+        <input checked={todo.done} on.click={() => toggle(todo)} />
+        {todo.text}
+      </li>
+    </ul>
+  </main>
+</view>
+
+<style scoped>
+.todo-app { font-family: system-ui; padding: 1rem; }
+.done { opacity: .55; text-decoration: line-through; }
+</style>

@@ -1,0 +1,17 @@
+<logic>
+import { signal } from '@blcklab/porma'
+import UiButton from './UiButton.blck'
+import UiPanel from './UiPanel.blck'
+
+const clicks = signal(0)
+function add() { clicks.value++ }
+</logic>
+
+<view>
+  <main>
+    <UiPanel title="Component Library">
+    </UiPanel>
+    <UiButton label="Click me" onClick={add} />
+    <p>Clicks: {clicks}</p>
+  </main>
+</view>

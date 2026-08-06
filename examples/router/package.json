@@ -1,0 +1,16 @@
+{
+  "name": "porma-router-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@blcklab/porma": "0.1.0-rc.3",
+    "@blcklab/porma-router": "0.1.0-rc.3"
+  },
+  "devDependencies": {
+    "@blcklab/porma-vite": "0.1.0-rc.3",
+    "vite": "latest"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "name": "@blcklab/porma-router",
+  "version": "0.1.0-rc.3",
+  "description": "Optional router package for Porma .blck apps.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "keywords": [
+    "porma",
+    "router",
+    "frontend",
+    "blck"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "@blcklab/porma": "0.1.0-rc.3"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blcklab/porma.git",
+    "directory": "packages/porma-router"
+  },
+  "bugs": {
+    "url": "https://github.com/blcklab/porma/issues"
+  },
+  "homepage": "https://github.com/blcklab/porma#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

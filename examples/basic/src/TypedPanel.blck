@@ -1,0 +1,22 @@
+<logic lang="ts">
+import { type Signal } from '@blcklab/porma'
+
+type PanelInfo = {
+  label: string
+}
+
+const inherited = defineInherits<{
+  count: Signal<number>
+}>()
+
+const info: PanelInfo = {
+  label: 'Typed inherited count'
+}
+</logic>
+
+<view>
+  <section class="typed-panel">
+    <strong>{info.label}</strong>
+    <span>{inherited.count}</span>
+  </section>
+</view>

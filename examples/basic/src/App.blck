@@ -1,0 +1,55 @@
+<logic>
+import { signal, shared } from '@blcklab/porma'
+import CounterText from './CounterText.blck'
+import TypedPanel from './TypedPanel.blck'
+
+const count = shared(signal(0))
+const title = signal('Porma')
+const showList = signal(true)
+const todos = signal([
+  { id: 1, text: 'Build Porma' },
+  { id: 2, text: 'Use plain loop' }
+])
+
+function increment() {
+  count.value++
+}
+
+function reset() {
+  count.value = 0
+}
+
+function toggleList() {
+  showList.value = !showList.value
+}
+</logic>
+
+<view>
+  <main class="app">
+    <h1>{title}</h1>
+
+    <button on.click={increment}>Add</button>
+    <button on.click={reset}>Reset</button>
+    <button on.click={toggleList}>Toggle List</button>
+
+    <ul show={showList}>
+      <li loop="todo in todos" key={todo.id}>
+        {todo.text}
+      </li>
+    </ul>
+
+    <CounterText />
+    <TypedPanel />
+  </main>
+</view>
+
+<style scoped>
+.app {
+  font-family: system-ui, sans-serif;
+  padding: 1rem;
+}
+
+button {
+  margin-right: 0.5rem;
+}
+</style>

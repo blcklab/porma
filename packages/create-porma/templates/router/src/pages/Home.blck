@@ -1,0 +1,72 @@
+<logic>
+import Button from '../components/ui/Button.blck'
+
+const inherited = defineInherits()
+
+function increment() {
+  inherited.count.value++
+}
+</logic>
+
+<view>
+  <section class="page-card">
+    <p class="eyebrow">Home</p>
+    <h2>Welcome to your routed Porma app</h2>
+    <p>Route state is installed separately through @blcklab/porma-router.</p>
+
+    <div class="counter-row">
+      <strong>{count}</strong>
+      <Button label="Increment inherited count" onClick={increment} />
+    </div>
+
+    <ul>
+      <li loop="todo in todos" key={todo.id}>{todo.text}</li>
+    </ul>
+  </section>
+</view>
+
+<style scoped>
+.page-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+
+.eyebrow {
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+}
+
+.counter-row {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+strong {
+  font-size: 2.5rem;
+}
+
+ul {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  background: #f1f5f9;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+}
+</style>

@@ -1,0 +1,40 @@
+{
+  "name": "create-porma",
+  "version": "0.1.0-rc.3",
+  "description": "Create a new Porma .blck app.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "create-porma": "./bin/create-porma.mjs"
+  },
+  "files": [
+    "bin",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "porma",
+    "create-porma",
+    "scaffold",
+    "blck",
+    "vite"
+  ],
+  "dependencies": {},
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "pack:dry-run": "npm pack --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blcklab/porma.git",
+    "directory": "packages/create-porma"
+  },
+  "bugs": {
+    "url": "https://github.com/blcklab/porma/issues"
+  },
+  "homepage": "https://github.com/blcklab/porma#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

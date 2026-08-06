@@ -1,0 +1,35 @@
+<logic lang="ts">
+const props = defineProps<{
+  title?: string
+  body?: string
+}>({
+  title: { default: 'Card' },
+  body: { default: '' }
+})
+</logic>
+
+<view>
+  <section class="card">
+    <h2>{props.title}</h2>
+    <p>{props.body}</p>
+  </section>
+</view>
+
+<style scoped>
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+  padding: 1.25rem;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+}
+
+p {
+  color: #475569;
+  margin: 0;
+}
+</style>

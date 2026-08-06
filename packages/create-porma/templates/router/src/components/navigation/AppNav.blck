@@ -1,0 +1,17 @@
+<logic>
+import { RouterLink } from '@blcklab/porma-router'
+</logic>
+
+<view>
+  <nav class="nav">
+    <RouterLink to="/" label="Home" />
+    <RouterLink to="/about" label="About" />
+  </nav>
+</view>
+
+<style scoped>
+.nav {
+  display: flex;
+  gap: 0.75rem;
+}
+</style>
